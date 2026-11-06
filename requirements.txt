@@ -1,0 +1,4 @@
+pika==1.4.4
+psycopg[binary]==3.3.8
+psycopg-pool==3.3.3
+requests==2.34.2

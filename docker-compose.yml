@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  ekco-gps:
+    build: .
+    image: ekco-scripts:latest
+    container_name: ekco-gps
+    command: ["python", "-u", "ekco_gps_new_server.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  ekco-health-check:
+    build: .
+    image: ekco-scripts:latest
+    container_name: ekco-health-check
+    command: ["python", "-u", "ekco_health_check_new_server.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  ekco-telemetry:
+    build: .
+    image: ekco-scripts:latest
+    container_name: ekco-telemetry
+    command: ["python", "-u", "ekco_telemetry_new_server.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  new-server-create-user:
+    build: .
+    image: ekco-scripts:latest
+    container_name: new-server-create-user
+    command: ["python", "-u", "new_server_create_user.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  process-ota:
+    build: .
+    image: ekco-scripts:latest
+    container_name: process-ota
+    command: ["python", "-u", "process_ota_new_server.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+  request-device-profile:
+    build: .
+    image: ekco-scripts:latest
+    container_name: request-device-profile
+    command: ["python", "-u", "request_device_profile_new_server.py"]
+    restart: unless-stopped
+    environment:
+      PYTHONUNBUFFERED: "1"
